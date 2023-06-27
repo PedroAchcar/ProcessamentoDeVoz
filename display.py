@@ -1,7 +1,7 @@
 import pygame
 
 
-def display_meaning(meaning: list):
+def display_meaning(meaning: list) -> None:
     pygame.init()
 
     width = 1300
@@ -10,7 +10,7 @@ def display_meaning(meaning: list):
     vertical_space = 10
 
     screen = pygame.display.set_mode((width, height))
-    pygame.display.set_caption('DiciVoz')
+    pygame.display.set_caption('DicioVoz')
 
     white = (255, 255, 255)
     black = (0, 0, 0)
