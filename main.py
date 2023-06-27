@@ -1,6 +1,7 @@
 import requests
+from playsound import playsound
 
-from audio import text_from_audio
+from audio import text_from_audio, close_program
 from display import display_meaning
 
 
@@ -16,9 +17,21 @@ def get_meaning(word: str) -> list:
 
 
 def main() -> None:
-    word = text_from_audio()
-    meaning = get_meaning(word)
-    display_meaning(meaning)
+    while True:
+        word = text_from_audio()
+
+        try:
+            meaning = get_meaning(word)
+            display_meaning(meaning)
+        except:
+            print(word)
+            playsound('audios/error.mp3')
+
+        if close_program():
+            break
+
+    playsound('audios/end.mp3')
+    print("Finalizando programa")
 
 
 if __name__ == "__main__":
