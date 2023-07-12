@@ -3,6 +3,7 @@ from playsound import playsound
 
 from audio import text_from_audio, close_program
 from display import display_meaning
+from text_to_speech import automaticReader
 
 
 def get_meaning(word: str) -> list:
@@ -22,6 +23,7 @@ def main() -> None:
 
         try:
             meaning = get_meaning(word)
+            automaticReader(meaning)
             display_meaning(meaning)
         except:
             print(word)
